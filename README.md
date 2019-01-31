@@ -1,10 +1,12 @@
 # Evolution-simulator
 <strong>Evolution simulator, that simulates creatures that follow physics, and has a simple neural network.</strong>
+
 Made in processing 3.3.4
 
 <b>For an overview, watch the youtube video: (LINK PUT HERE LATER) </b>
 
 <b>Code- Classes and main functions: Basic overview</b>
+
 Basic functions/classes- file: Functions
   Vector functions- Addition, Scalar multiplication, Lerp, Magnatude, Complex mult and divide
   Other functions- Clamp, Random Integer
@@ -31,6 +33,7 @@ Physical objects- file: C_Physical objects
 
 
 <b>More info: Just the video script</b>
+
 Intro- About 3 years ago I saw this simulator made by Cary Kh, that was super cool, so I decided I wanted to make my own. Thus my journey began, to build my own evolution simulator, from scratch.
 
 Much rage, testing, and a few thousand lines of code later, I was left with this. Let’s take a look at what it can do.
