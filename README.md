@@ -3,7 +3,7 @@
 
 Made in processing 3.3.4
 
-<b>For an overview, watch the youtube video: (LINK PUT HERE LATER) </b>
+<b>For an overview, watch the youtube video: https://www.youtube.com/watch?v=GnbQzkmFwA8 </b>
 
 <b>Code- Classes and main functions: Basic overview</b>
 
