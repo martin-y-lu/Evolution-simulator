@@ -11,12 +11,14 @@ Basic functions/classes- file: Functions
   Vector functions- Addition, Scalar multiplication, Lerp, Magnatude, Complex mult and divide
   Other functions- Clamp, Random Integer
 
-Physical objects- file: C_Physical objects
-  Point- Baisic piece of phyics.
-  Eye- Sensory input- child of Point
-  Logic- Logic type point
-  Muscle- Connects two points, applies forces, takes input from organism
+Physical objects- file: C_Physical object
+  Logic superclass: 
+
+  Point- Baisic piece of phyics.  : Instance of Logic
+  Eye- Sensory input- child of Point : Instance of Logic
+  Muscle- Connects two points, applies forces, takes input from organism  : Instance of Logic
   Neuron- Connects eyes to logic, logic to logic and to muscles. Has delay in transmittion
+  RayCaster- Casts rays, and calulates intersections, distance, ect
   Barrier- Collidable piece of ground
   
  Organism- file: B_Organism
@@ -129,6 +131,51 @@ This was my fist, actually good, youtube video ever, and I hope to make more. I 
 Good bye now.
 But also, watch cary’s evolution series if you haven’t. They’re crazy well made.
 Also, download link in description.
+
+
+
+<b> More info again: about new video </b>
+Hey everybody, after four months (daym) I’m back with an new update to my evolution simulator, with a bunch of new features. (Btw watch the first video to get up to speed, this video won’t make much sense otherwise)
+
+In order to help the creatures to handle more dangerous and complex environments, I gave the creatures a lot more freedom. Previously the states in the creatures brain were only binary (true or false ), and could only be combined with simple logic gates with 2 inputs. Now the states can range continuously between 1 and negative 1, and can be combined logically by a node with any number of inputs. Points, now take a weighted sum of all its inputs, plus a bias, then passes it into an activation function, witch squishes the sum between -1 and 1 to compute its state. By choosing the correct weights and biases, the point can simulate any logic gate and more. ( watch this video explaining how that works in more detail)
+
+But the most interesting change in my opinion is the creatures input. There eyes now shoot out lasers that measure how far away from the ground by using raycasting and uses that distance as its input. (If an eye is underground, the distance is negative) During mutation, the eyes sensitivity and direction are changed, and the eye may even gain an other laser.
+
+With these new creatures, it is easier for the creatures to gain new inputs and have them effect the internal logic without instantly breaking everything. The simulator now technically uses the NEAT algorithm, with the slight difference that the nerves have a delay and the network allows loops.
+
+Let’s take a look at what these new creatures look like. Welcome back to the evolution hub. Let’s generate 5000 creatures, test them and sort them. The best creature contracts one muscle to move forward. This pulls up the eye, continuing the movement. The next creature flops around, making fine use of its many eyes and muscles. The third creature uses a spinning eye to take a few steps forward. The other creatures also have interesting strategies.
+
+While we evolve the population on flat terrain, lets look at the changes I made to evolution. 
+The biggest change I made was slowing evolution way down. Instead of killing off half of the population, i only kill 5%. This means every creature has more chances to show how far they can get. It’s also more like nature, because there isn’t a mass extinction every decade. Another thing I added was density dependent limiting factors, that basically penalises any species with a population over a few hundred. I also penalized species that are too similar to others. I did this to try to increase diversity in the population witch is important for when the population runs into a challenging situation it hasn’t evolved for. Like a bump (SCREAMS) More times than I’m okay with, not a single creature can pass the obstacle, and evolution stops dead. Restricting populations means that there are often 4 or 5 unique species in the first 40 generations.
+
+wait a second. It looks like rolling creature has evolved, just like the last video. Thats a crazy coincidence, I  haven’t gotten any rolling creatures before recording the video, i set the random seed to 100, and lo and behold. Perhaps its destiny. Rolling creatures are to take the promised land. 
+
+Anyway. I also made changes to addition of new points and nerves. Read the wall of text if your interested.
+
+WALL OF TEXT:
+	Changes I used:
+		When a new nerve is added, the weight used by the logic point is distributed on a normal curve with a low deviation as to not impact the creatures function too much. Then the most helpful weight can be selected via mutation and selection.
+		When a new point (Eye or otherwise) is added,  i also connect it to a few points using nerves and muscles (BTW muscles now take more than one input and also do a logic calculation). Previously points were added without muscles, and relied on chance to be attached, witch is kinda useless. Thats why you see a bunch of creatures with dangly bits (ew) after evolution. Maybe it helps with balance, I don’t know.
+	Changes I didn’t use: (Most of them lol)
+		I used to give creatures that outperformed their parents a lot a large increase in fitness. The problem was that the creatures that flail and just randomly did a lot better tend to live for a long time, witch makes them create alot of flatly offspring, witch then outperform, and before you know it you got a large population of crap creatures. These crap creatures often only have one or two points, and don’t really have an interesting mechanism, relying on luck.
+	In order to try to disadvantage creatures that rely on luck, I had a random mutation of all creatures, but that just made the problem worse. yoyle
+ I would do anything to kill them.(don’t take out of context)  I could outlaw them, but thats a bit extreme.
+
+So, after 100 generations of evolution, here are the results. The best creature is the perfected version of the first creature we saw. It gallops magestically, wouldn’t you say?
+
+And heres a few more examples. I find it fascinating that most of them are almost bipedal. 
+
+Now lets get to what you were all waiting for, the hurdles. After the first generation…
+
+
+Past generation 30, the one pointed creatures make up the top 20. Even though it lacks structure, I can respect the way it moves over the hurdles.
+The creatures that got overthrown by the single pointed ones are now in 23d place. This is how it moves:
+
+
+
+Well, the yellow creatures stayed the reigning creature for the following generations, thats kinda disappointing. I don’t know what I was expecting, because about a third of all the random seeds I tested resulted in a flailing creature. Perhaps the environment is just too challenging for normal creatures. Dispite this seeds falure, lets look at some other results of evolution.
+
+Well, hope you found this video interesting. Tune in next time to watch creatures evolve to jump over Holes! (SCREAM)   Oh yeah, and follow my twitter for updates, and cool stuff. Thanks for watching!
 
 
 
